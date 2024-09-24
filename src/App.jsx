@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addTodo, editTodo, removeTodo ,updatedTodo } from './config/redux/reducers/todoSlice'
+import { addTodo, editTodo, removeTodo ,update } from './config/redux/reducers/todoSlice'
 
 
 
@@ -39,7 +39,7 @@ const EditTodo = (index)=>{
 
   dispatch(editTodo({
     index : index,
-    content: updatedTodo  
+    title : update
   }))
 todoRef.current.value =''
   

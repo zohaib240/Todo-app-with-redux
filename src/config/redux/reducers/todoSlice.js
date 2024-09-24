@@ -5,10 +5,7 @@ import { createSlice, nanoid } from "@reduxjs/toolkit"
 export const todoSlice=createSlice({
     name :'todos',
     initialState :{
-     todos :[{
-        title:'hello',
-        id:1 
-    }]
+     todos :[]
     },
     reducers:{
         addTodo : (state,action)=>{
@@ -21,12 +18,12 @@ export const todoSlice=createSlice({
            state.todos.splice(action.payload.index,1)
         },
         editTodo: (state , action) => {
-            const updatedTodo = prompt(`Enter Your Updated Value`)
-            state.todos.splice(action.payload.index , 1 , {content:updatedTodo, id:nanoid()})}  
+            const update = prompt(`Enter Your Updated Value`)
+            state.todos.splice(action.payload.index , 1 ,{title: update , id: nanoid()} ) }  
     }  
 
 })
-export const {addTodo,removeTodo,editTodo,updatedTodo} = todoSlice.actions
+export const {addTodo,removeTodo,editTodo , update} = todoSlice.actions
 
 export default todoSlice.reducer
 
